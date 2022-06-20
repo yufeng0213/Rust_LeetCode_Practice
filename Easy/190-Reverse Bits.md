@@ -44,3 +44,37 @@ impl Solution {
   }
 }
 ```
+
+Others Code:
+```
+impl Solution {
+    pub fn reverse_bits(x: u32) -> u32 {
+        let mut input = x;
+        let mut output = 0;
+        
+        for i in 0..32 {
+            output <<= 1;
+            output |= input & 1;
+            input >>= 1;
+        }
+        
+        output
+    }
+}
+```
+
+
+```
+impl Solution {
+    pub fn reverse_bits(x: u32) -> u32 {
+        let mut res: u32 = 0;
+        
+        for i in 0..32 {
+            let bit = (x >> i) & 1;
+            res |= (bit << (31 - i));
+        }
+        
+        res
+    }
+}
+```
